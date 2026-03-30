@@ -811,13 +811,8 @@ def render_result() -> None:
             st.session_state.screen = "home"
             st.rerun()
 
-
-
-def main() -> None:
-    st.set_page_config(page_title="Survey App", layout="centered")
-
-    @st.cache_resource
-    def get_bank() -> tuple[Dict[str, Any], bool]:
+@st.cache_resource
+def get_bank() -> tuple[Dict[str, Any], bool]:
         base_dir: Path = Path(__file__).resolve().parent
         json_path: Path = base_dir / "survey_questions.json"
 
@@ -826,6 +821,8 @@ def main() -> None:
         else:
             return load_fallback_question_bank(), True
 
+def main() -> None:
+    st.set_page_config(page_title="Survey App", layout="centered")
     try:
         bank, using_fallback = get_bank()
     except (ValueError, json.JSONDecodeError) as exc:
