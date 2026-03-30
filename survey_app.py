@@ -590,10 +590,6 @@ def init_state(bank: Dict[str, Any]) -> None:
             st.session_state[key] = val
 
 
-# ---------------------------------------------------------------------------
-# Screen renderers
-# ---------------------------------------------------------------------------
-
 def render_home(bank: Dict[str, Any]) -> None:
     max_score = calculate_max_score(bank["questions"])
     score_range: Tuple[int, int] = (0, max_score)   # ← tuple
