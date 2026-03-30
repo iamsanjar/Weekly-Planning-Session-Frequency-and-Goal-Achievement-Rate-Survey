@@ -590,6 +590,7 @@ def init_state(bank: Dict[str, Any]) -> None:
             st.session_state[key] = val
 
 
+
 def render_home(bank: Dict[str, Any]) -> None:
     max_score = calculate_max_score(bank["questions"])
     score_range: Tuple[int, int] = (0, max_score)   # ← tuple
@@ -800,8 +801,9 @@ def render_result() -> None:
     col1, col2 = st.columns([1, 5])
     with col1:
         if st.button("Start Another Survey", type="primary"):
+            bank, _ = get_bank()
             st.session_state.screen = "info"
-            st.session_state.answers = []
+            st.session_state.answers = [None] * len(bank["questions"])
             st.session_state.result = None
             st.rerun()
     with col2:
@@ -815,23 +817,22 @@ def main() -> None:
     st.set_page_config(page_title="Survey App", layout="centered")
 
     @st.cache_resource
-    def get_bank() -> Dict[str, Any]:
+    def get_bank() -> tuple[Dict[str, Any], bool]:
         base_dir: Path = Path(__file__).resolve().parent
         json_path: Path = base_dir / "survey_questions.json"
-        # Try external JSON first; fall back to the embedded bank
+
         if json_path.exists():
-            return load_question_bank(json_path)
+            return load_question_bank(json_path), False
         else:
-            return load_fallback_question_bank()
+            return load_fallback_question_bank(), True
 
     try:
-        bank = get_bank()
+        bank, using_fallback = get_bank()
     except (ValueError, json.JSONDecodeError) as exc:
         st.error(f"**Could not load question bank:** {exc}")
         st.stop()
 
-    # Inform user if fallback embedded bank is active
-    if bank["survey_id"] == FALLBACK_QUESTION_BANK["survey_id"]:
+    if using_fallback:
         st.info(
             "\u2139\ufe0f **Using built-in fallback survey** \u2014 "
             "`survey_questions.json` was not found in the app directory. "
