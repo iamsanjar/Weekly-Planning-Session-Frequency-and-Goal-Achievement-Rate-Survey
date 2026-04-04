@@ -4,7 +4,7 @@ import csv
 import io
 import json
 from dataclasses import asdict, dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -473,7 +473,7 @@ def build_result(
         given_name=respondent_info["given_name"],
         date_of_birth=respondent_info["date_of_birth"],
         student_id=respondent_info["student_id"],
-        submitted_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        submitted_at=datetime.now(tz=timezone(timedelta(hours=5))).strftime("%Y-%m-%d %H:%M:%S"),
         total_score=total_score,
         max_score=max_score,
         score_percentage=score_pct,
@@ -833,7 +833,9 @@ def render_result() -> None:
     col1, col2, col3 = st.columns(3)
     col1.metric("Total score", f"{result.total_score} / {result.max_score}")
     col2.metric("Percentage", f"{result.score_percentage}%")
-    col3.metric("State", result.state_label)
+    with col3:
+        st.markdown("**State**")
+        st.markdown(f"### {result.state_label}")
 
     st.markdown(f"**Summary:** {result.state_summary}")
     st.markdown(f"**Interpretation:** {result.state_description}")
