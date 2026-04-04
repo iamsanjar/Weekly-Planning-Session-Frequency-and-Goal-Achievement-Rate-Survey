@@ -23,176 +23,255 @@ _DEMO_BOOL:  bool  = True
 _DEMO_DICT:  dict  = {}                      
 
 FALLBACK_QUESTION_BANK: dict = {
-    "survey_id": "weekly-planning-goal-achievement",
-    "title": "Weekly Planning Session Frequency and Goal Achievement Rate Survey",
-    "description": (
-        "This questionnaire measures how regularly a person plans their week "
-        "and how effectively they achieve planned goals."
-    ),
-    "questions": [
-        {"id": 1,
-         "text": "How often do you dedicate time to holding a structured weekly planning session?",
-         "options": [
-             {"label": "Every week without exception",  "score": 0},
-             {"label": "Most weeks",                    "score": 1},
-             {"label": "Occasionally",                  "score": 2},
-             {"label": "Almost never or never",         "score": 3}]},
-        {"id": 2,
-         "text": "When you set goals at the start of a week, how many do you typically achieve by the end of it?",
-         "options": [
-             {"label": "Nearly all of them",            "score": 0},
-             {"label": "More than half",                "score": 1},
-             {"label": "About half or fewer",           "score": 2},
-             {"label": "Rarely any",                    "score": 3}]},
-        {"id": 3,
-         "text": "How clearly do you define your goals before beginning a planning session?",
-         "options": [
-             {"label": "Always clearly, with specific steps and deadlines", "score": 0},
-             {"label": "Usually clear, though sometimes vague",             "score": 1},
-             {"label": "Often vague or loosely defined",                    "score": 2},
-             {"label": "I do not define goals in advance",                  "score": 3}]},
-        {"id": 4,
-         "text": "How consistently do you review what you planned at the end of each week to assess your progress?",
-         "options": [
-             {"label": "Every week",                    "score": 0},
-             {"label": "Often, but not every week",     "score": 1},
-             {"label": "Rarely",                        "score": 2},
-             {"label": "Never",                         "score": 3}]},
-        {"id": 5,
-         "text": "When you do not achieve a planned goal, how do you typically respond?",
-         "options": [
-             {"label": "I analyse what went wrong and adjust my approach", "score": 0},
-             {"label": "I reschedule the goal for next week",              "score": 1},
-             {"label": "I feel frustrated but do not take specific action","score": 2},
-             {"label": "I tend to abandon the goal altogether",            "score": 3}]},
-        {"id": 6,
-         "text": "How well do you prioritise your goals during a planning session?",
-         "options": [
-             {"label": "Very well, I always rank tasks by importance and urgency",          "score": 0},
-             {"label": "Fairly well, I consider priority most of the time",                 "score": 1},
-             {"label": "Inconsistently, I sometimes treat all tasks as equally important",  "score": 2},
-             {"label": "I do not prioritise and proceed without a clear order",             "score": 3}]},
-        {"id": 7,
-         "text": "How often do you break large goals into smaller, manageable steps during planning?",
-         "options": [
-             {"label": "Always",   "score": 0},
-             {"label": "Often",    "score": 1},
-             {"label": "Rarely",   "score": 2},
-             {"label": "Never",    "score": 3}]},
-        {"id": 8,
-         "text": "How realistic are the goals you usually set for a single week?",
-         "options": [
-             {"label": "Very realistic and achievable",      "score": 0},
-             {"label": "Mostly realistic",                   "score": 1},
-             {"label": "Sometimes unrealistic",              "score": 2},
-             {"label": "Usually too ambitious or unclear",   "score": 3}]},
-        {"id": 9,
-         "text": "How often do unexpected events completely derail your weekly plans?",
-         "options": [
-             {"label": "Almost never because I adapt well",  "score": 0},
-             {"label": "Occasionally",                       "score": 1},
-             {"label": "Often",                              "score": 2},
-             {"label": "Almost every week",                  "score": 3}]},
-        {"id": 10,
-         "text": "How much time do you usually spend preparing your weekly plan?",
-         "options": [
-             {"label": "Enough time to think through tasks carefully", "score": 0},
-             {"label": "A reasonable amount of time",                  "score": 1},
-             {"label": "Very little time",                             "score": 2},
-             {"label": "I do not set aside planning time",             "score": 3}]},
-        {"id": 11,
-         "text": "How often do you write your weekly goals down in a planner, notebook, or digital tool?",
-         "options": [
-             {"label": "Every week",   "score": 0},
-             {"label": "Most weeks",   "score": 1},
-             {"label": "Rarely",       "score": 2},
-             {"label": "Never",        "score": 3}]},
-        {"id": 12,
-         "text": "How confident do you feel that you will complete your goals after a planning session?",
-         "options": [
-             {"label": "Very confident",         "score": 0},
-             {"label": "Moderately confident",   "score": 1},
-             {"label": "Slightly confident",     "score": 2},
-             {"label": "Not confident at all",   "score": 3}]},
-        {"id": 13,
-         "text": "When planning your week, how often do you consider deadlines in advance?",
-         "options": [
-             {"label": "Always",           "score": 0},
-             {"label": "Usually",          "score": 1},
-             {"label": "Sometimes",        "score": 2},
-             {"label": "Rarely or never",  "score": 3}]},
-        {"id": 14,
-         "text": "How often do you include time for rest or recovery when making your weekly plan?",
-         "options": [
-             {"label": "Always",   "score": 0},
-             {"label": "Often",    "score": 1},
-             {"label": "Rarely",   "score": 2},
-             {"label": "Never",    "score": 3}]},
-        {"id": 15,
-         "text": "How likely are you to postpone an important task even after planning it?",
-         "options": [
-             {"label": "Very unlikely",      "score": 0},
-             {"label": "Somewhat unlikely",  "score": 1},
-             {"label": "Quite likely",       "score": 2},
-             {"label": "Very likely",        "score": 3}]},
-        {"id": 16,
-         "text": "How often do you adjust your weekly goals when you notice they are no longer realistic?",
-         "options": [
-             {"label": "Promptly and effectively",                           "score": 0},
-             {"label": "Sometimes",                                          "score": 1},
-             {"label": "Rarely",                                             "score": 2},
-             {"label": "I usually continue without adjusting anything",      "score": 3}]},
-        {"id": 17,
-         "text": "How organized are the tools or systems you use for weekly planning?",
-         "options": [
-             {"label": "Very organized and easy to follow",  "score": 0},
-             {"label": "Mostly organized",                   "score": 1},
-             {"label": "Somewhat disorganized",              "score": 2},
-             {"label": "I do not use any consistent system", "score": 3}]},
-        {"id": 18,
-         "text": "How often do you begin your week knowing exactly which goals are the top priority?",
-         "options": [
-             {"label": "Always",           "score": 0},
-             {"label": "Usually",          "score": 1},
-             {"label": "Sometimes",        "score": 2},
-             {"label": "Rarely or never",  "score": 3}]},
-        {"id": 19,
-         "text": "How often do you reflect on why certain goals were completed successfully?",
-         "options": [
-             {"label": "Every week",   "score": 0},
-             {"label": "Often",        "score": 1},
-             {"label": "Rarely",       "score": 2},
-             {"label": "Never",        "score": 3}]},
-        {"id": 20,
-         "text": "Overall, how effective do you believe your weekly planning process is?",
-         "options": [
-             {"label": "Highly effective",      "score": 0},
-             {"label": "Mostly effective",      "score": 1},
-             {"label": "Somewhat ineffective",  "score": 2},
-             {"label": "Very ineffective",      "score": 3}]},
-    ],
-    "states": [
-        {"min_score": 0,  "max_score": 12,
-         "label":   "Highly Effective Planner",
-         "summary": "Exceptional planning frequency and goal achievement.",
-         "description": "Strong self-regulatory habits are visible in the answers, so no immediate intervention is needed."},
-        {"min_score": 13, "max_score": 24,
-         "label":   "Effective Planner",
-         "summary": "Good planning consistency with solid goal achievement.",
-         "description": "Current habits are working well, and only minor improvements are likely to be needed."},
-        {"min_score": 25, "max_score": 36,
-         "label":   "Moderate Planner",
-         "summary": "Planning is present, but goal achievement is inconsistent.",
-         "description": "Refining goal structure, planning detail, and weekly review habits would likely improve results."},
-        {"min_score": 37, "max_score": 48,
-         "label":   "Inconsistent Planner",
-         "summary": "Planning sessions are irregular and goal achievement is low.",
-         "description": "Increasing planning frequency and adding stronger accountability would be advisable."},
-        {"min_score": 49, "max_score": 60,
-         "label":   "Disengaged Planner",
-         "summary": "There is little structured planning and planned goals are rarely achieved.",
-         "description": "A more supportive structure around self-regulation and goal setting is strongly recommended."},
-    ],
+  "survey_id": "weekly-planning-goal-achievement",
+  "title": "Weekly Planning Session Frequency and Goal Achievement Rate Survey",
+  "description": "This questionnaire measures how regularly a person conducts weekly planning sessions and how successfully they achieve the goals set during those sessions.",
+  "questions": [
+    {
+      "id": 1,
+      "text": "How often do you hold a dedicated weekly planning session?",
+      "options": [
+        { "label": "Every week without exception", "score": 0 },
+        { "label": "Most weeks (3 out of 4)", "score": 1 },
+        { "label": "Occasionally (1–2 times per month)", "score": 2 },
+        { "label": "Rarely (a few times per year)", "score": 3 },
+        { "label": "Never", "score": 4 }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What proportion of the goals you set at the start of a week do you typically complete by the end of it?",
+      "options": [
+        { "label": "Nearly all of them (90% or more)", "score": 0 },
+        { "label": "Most of them (around 70–89%)", "score": 1 },
+        { "label": "About half (50–69%)", "score": 2 },
+        { "label": "Fewer than half (below 50%)", "score": 3 },
+        { "label": "Rarely any (less than 20%)", "score": 4 }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "How long is your typical weekly planning session?",
+      "options": [
+        { "label": "More than 30 minutes with structured thinking", "score": 0 },
+        { "label": "Around 15–30 minutes", "score": 1 },
+        { "label": "Under 10 minutes, mostly informal", "score": 2 },
+        { "label": "I do not set aside dedicated planning time", "score": 3 }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "How do you document the goals you plan to achieve each week?",
+      "options": [
+        { "label": "I write them in a dedicated planner or digital tool every week", "score": 0 },
+        { "label": "I write them down most weeks", "score": 1 },
+        { "label": "I occasionally write them down but not consistently", "score": 2 },
+        { "label": "I do not record goals — I rely on memory or set none", "score": 3 }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "How clearly do you define each goal at the start of the week?",
+      "options": [
+        { "label": "Always clearly, with specific steps and a target date", "score": 0 },
+        { "label": "Mostly clear, though some details are missing", "score": 1 },
+        { "label": "Usually vague — I know the goal but not the steps", "score": 2 },
+        { "label": "I do not define goals in advance", "score": 3 }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "How consistently do you conduct an end-of-week review to assess which goals were achieved?",
+      "options": [
+        { "label": "Every week as a fixed habit", "score": 0 },
+        { "label": "Most weeks", "score": 1 },
+        { "label": "Occasionally", "score": 2 },
+        { "label": "Rarely", "score": 3 },
+        { "label": "Never", "score": 4 }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "How well do you prioritise your weekly goals by importance and urgency?",
+      "options": [
+        { "label": "Very well — I always rank tasks before starting the week", "score": 0 },
+        { "label": "Fairly well — I prioritise most of the time", "score": 1 },
+        { "label": "Inconsistently — I sometimes treat all tasks as equally important", "score": 2 },
+        { "label": "I do not prioritise at all", "score": 3 }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "How realistic are the goals you typically set for a single week?",
+      "options": [
+        { "label": "Always realistic — I consistently achieve what I plan", "score": 0 },
+        { "label": "Mostly realistic — I occasionally overestimate", "score": 1 },
+        { "label": "Sometimes unrealistic — goals frequently carry over", "score": 2 },
+        { "label": "Usually too ambitious — most goals carry over to the next week", "score": 3 },
+        { "label": "Always unrealistic — I rarely complete what I planned", "score": 4 }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "When you do not achieve a planned weekly goal, how do you typically respond?",
+      "options": [
+        { "label": "I analyse what went wrong and adjust my approach for next week", "score": 0 },
+        { "label": "I reschedule the goal with a revised plan", "score": 1 },
+        { "label": "I carry it over without making any changes", "score": 2 },
+        { "label": "I tend to drop the goal entirely", "score": 3 }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "How often do you break large weekly goals into smaller, actionable steps during planning?",
+      "options": [
+        { "label": "Always — I map out sub-tasks for every major goal", "score": 0 },
+        { "label": "Often — for most goals", "score": 1 },
+        { "label": "Rarely — only for very complex goals", "score": 2 },
+        { "label": "Never", "score": 3 }
+      ]
+    },
+    {
+      "id": 11,
+      "text": "How often do unexpected events completely derail your weekly plan?",
+      "options": [
+        { "label": "Rarely — I build buffer time and adapt well", "score": 0 },
+        { "label": "Occasionally — perhaps once or twice a month", "score": 1 },
+        { "label": "Very often — almost every week", "score": 2 }
+      ]
+    },
+    {
+      "id": 12,
+      "text": "How consistent has your weekly planning habit been over the past three months?",
+      "options": [
+        { "label": "Very consistent — I planned every single week", "score": 0 },
+        { "label": "Mostly consistent — I missed only a few weeks", "score": 1 },
+        { "label": "Inconsistent — I planned roughly half the weeks or fewer", "score": 2 },
+        { "label": "I have not held a single planning session in the past three months", "score": 3 }
+      ]
+    },
+    {
+      "id": 13,
+      "text": "How confident do you feel at the start of each week that you will achieve your planned goals?",
+      "options": [
+        { "label": "Very confident — I trust my planning process", "score": 0 },
+        { "label": "Moderately confident", "score": 1 },
+        { "label": "Mostly doubtful", "score": 2 },
+        { "label": "Not confident at all", "score": 3 }
+      ]
+    },
+    {
+      "id": 14,
+      "text": "How often do you connect your weekly goals to longer-term personal or professional objectives?",
+      "options": [
+        { "label": "Always — each weekly goal links to a broader plan", "score": 0 },
+        { "label": "Sometimes", "score": 1 },
+        { "label": "Never — my weekly goals are set independently of any longer plan", "score": 2 }
+      ]
+    },
+    {
+      "id": 15,
+      "text": "How often do you postpone a planned weekly task even after scheduling it?",
+      "options": [
+        { "label": "Almost never — I follow through on scheduled tasks", "score": 0 },
+        { "label": "Occasionally", "score": 1 },
+        { "label": "About half the time", "score": 2 },
+        { "label": "Often", "score": 3 },
+        { "label": "Almost always — tasks routinely carry over to the next week", "score": 4 }
+      ]
+    },
+    {
+      "id": 16,
+      "text": "How promptly do you revise your weekly plan when circumstances change?",
+      "options": [
+        { "label": "Immediately — I update the plan the same day", "score": 0 },
+        { "label": "Usually within a day or two", "score": 1 },
+        { "label": "Rarely — I usually continue with the original plan even if it no longer fits", "score": 2 },
+        { "label": "I never adjust — I either complete the goals or abandon them", "score": 3 }
+      ]
+    },
+    {
+      "id": 17,
+      "text": "How often do you reflect on what made your successfully completed goals achievable?",
+      "options": [
+        { "label": "Regularly — I identify what worked and build on it", "score": 0 },
+        { "label": "Occasionally", "score": 1 },
+        { "label": "Never — I move on without reflection", "score": 2 }
+      ]
+    },
+    {
+      "id": 18,
+      "text": "How effectively does the tool or system you use support your weekly planning?",
+      "options": [
+        { "label": "Very effectively — it is structured, reliable, and easy to follow", "score": 0 },
+        { "label": "Somewhat — it works but is often inconsistently used", "score": 1 },
+        { "label": "I use no planning tool or system at all", "score": 2 }
+      ]
+    },
+    {
+      "id": 19,
+      "text": "How often do you begin each week knowing clearly which goal is the single highest priority?",
+      "options": [
+        { "label": "Always — I identify my top priority during planning", "score": 0 },
+        { "label": "Usually", "score": 1 },
+        { "label": "Sometimes", "score": 2 },
+        { "label": "Never — I start the week without a clear priority", "score": 3 }
+      ]
+    },
+    {
+      "id": 20,
+      "text": "Overall, how satisfied are you with your personal rate of weekly goal achievement?",
+      "options": [
+        { "label": "Satisfied — I consistently achieve what I plan", "score": 0 },
+        { "label": "Somewhat satisfied — achievement is hit or miss", "score": 1 },
+        { "label": "Dissatisfied — I rarely achieve what I set out to do", "score": 2 }
+      ]
+    }
+  ],
+  "states": [
+    {
+      "min_score": 0,
+      "max_score": 10,
+      "label": "Highly Effective Planner",
+      "summary": "Excellent planning frequency with outstanding goal achievement.",
+      "description": "Weekly sessions are held consistently, goals are clearly defined, and the vast majority are completed each week. No changes are needed; this level of self-regulation and commitment should be maintained and built upon."
+    },
+    {
+      "min_score": 11,
+      "max_score": 20,
+      "label": "Effective Planner",
+      "summary": "Good planning consistency and solid goal achievement rate.",
+      "description": "Planning sessions occur regularly and most goals are completed on time. Minor refinements to prioritisation, goal clarity, or end-of-week review habits could push performance to the highest level."
+    },
+    {
+      "min_score": 21,
+      "max_score": 30,
+      "label": "Moderate Planner",
+      "summary": "Planning sessions occur but goal achievement is inconsistent.",
+      "description": "Some weeks are productive while others fall short. Improving how goals are defined, breaking tasks into smaller steps, and conducting a brief weekly review would likely close the gap between planning and achievement."
+    },
+    {
+      "min_score": 31,
+      "max_score": 40,
+      "label": "Inconsistent Planner",
+      "summary": "Planning sessions are irregular and fewer than half of goals are typically achieved.",
+      "description": "Goal achievement suffers primarily because planning is unpredictable. Committing to a fixed weekly planning time, reducing the number of goals set each week, and introducing a simple accountability method are strongly advisable."
+    },
+    {
+      "min_score": 41,
+      "max_score": 50,
+      "label": "Low-Engagement Planner",
+      "summary": "Planning rarely occurs and goal achievement is very low.",
+      "description": "Without a reliable planning structure, most goals are left to chance. Establishing a simple, repeatable weekly routine, writing down at least one goal per week, and using a basic tracking tool would provide a meaningful starting point."
+    },
+    {
+      "min_score": 51,
+      "max_score": 60,
+      "label": "Disengaged Planner",
+      "summary": "There is no structured weekly planning and goals are almost never achieved.",
+      "description": "Significant support around self-regulation, goal-setting fundamentals, and time management is strongly recommended. Beginning with one small, clearly defined goal per week and reviewing it at the end of the week can help build initial momentum."
+    }
+  ]
 }
 
 
